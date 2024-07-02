@@ -18,12 +18,7 @@ export default {
     StyledContainer,
     Form
   },
-  props: {
-    // scrollToTop: Function
-  },
-  // mounted() {
-  //   this.scrollToTop();
-  // }
+
 };
 </script>
 

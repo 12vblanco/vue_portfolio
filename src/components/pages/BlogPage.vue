@@ -19,15 +19,7 @@ export default {
     StyledContainer,
     BlogEntry
   },
-  props: {
-    // scrollToTop: {
-    //   type: Function,
-    //   required: true
-    // }
-  },
-  // mounted() {
-  //   this.scrollToTop();
-  // },
+ 
   data() {
     return {
       blogEntries: blogEntries
