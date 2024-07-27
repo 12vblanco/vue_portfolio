@@ -1,7 +1,7 @@
 <template>
   <div v-if="props.product" class="add-to-wrapper">
     <div v-if="productQty < 1" class="row-div">
-      <OhVueIcon name="md-addshoppingcart-outlined" class="add-icon" @click="addToCart" scale="2.2"/>
+      <AddToCartIcon class="add-icon" @click="addToCart" scale="2.2"/>
     </div>
     <div v-else class="column-div" style="font-size: 2.6rem;">
       <div class="row-div">
@@ -14,12 +14,10 @@
 </template>
 
 <script setup>
-import { OhVueIcon, addIcons } from "oh-vue-icons";
-import { MdAddshoppingcartOutlined } from "oh-vue-icons/icons";
 import { computed } from 'vue';
+import AddToCartIcon from "../../assets/svg/AddToCartIcon.vue";
 import { useCart } from "../../utils/CartContext.js";
 
-addIcons(MdAddshoppingcartOutlined);
 
 const props = defineProps({
   product: Object,
@@ -52,6 +50,8 @@ const removeFromCart = () => {
   color: var(--color-secondary);
   transition: all 0.2s linear;
   margin-top: -12px;
+  width: 42px;
+  height: 42px;
 }
 
 .add-icon:hover {

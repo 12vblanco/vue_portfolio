@@ -1,17 +1,15 @@
 <template>
   <div class="shopping-div" @click="handleShow">
-    <OhVueIcon name="md-addshoppingcart-outlined" scale="2"/>
+    <AddToCartIcon class="icon"/>
     <span class="counter">{{ productsCount }}</span>
   </div>
 </template>
 
 <script setup>
-import { OhVueIcon, addIcons } from "oh-vue-icons";
-import { MdAddshoppingcartOutlined } from "oh-vue-icons/icons";
 import { computed } from 'vue';
+import AddToCartIcon from "../../assets/svg/AddToCartIcon.vue";
 import { useCart } from '../../utils/CartContext';
 
-addIcons(MdAddshoppingcartOutlined);
 
 const props = defineProps({
   handleShow: Function,
@@ -59,4 +57,10 @@ const productsCount = computed(() =>
   top: 40px;
   right: 12px;
 }
+
+.icon{
+  width: 42px;
+  height: 42px;
+}
+
 </style>

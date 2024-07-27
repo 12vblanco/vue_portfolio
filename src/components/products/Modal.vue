@@ -3,8 +3,8 @@
     <div class="modal-header" :style="headerStyle">
       <p v-if="cartItemsCount > 0">Your basket:</p>
       <p v-else>Your cart is empty</p>
-      <div class="close">
-        <OhVueIcon name="io-close-outline" @click="props.handleClose" />
+      <div class="close" @click="props.handleClose">
+        <CloseIcon class="icon"/>
       </div>
     </div>
     <template v-if="cartItemsCount > 0">
@@ -34,11 +34,11 @@
       </div>
     </template>
     <template v-else>
-      <h5 @click="goToHome">
+      <h5 class="empty-cart-message" @click="goToHome">
         Click
-        <OhVueIcon
-          name="md-addshoppingcart-outlined"
-        />
+        <span class="add-to-cart-icon">
+          <AddToCartIcon />
+        </span>
         to add items
       </h5>
     </template>
@@ -46,15 +46,14 @@
 </template>
 
 <script setup>
-import { addIcons } from "oh-vue-icons";
-import { IoCloseOutline, MdAddshoppingcartOutlined } from "oh-vue-icons/icons";
 import { computed, watch } from 'vue';
 import { useRouter } from 'vue-router';
 import stripe_img from '../../assets/images/stripe_logo.png';
+import AddToCartIcon from "../../assets/svg/AddToCartIcon.vue";
+import CloseIcon from "../../assets/svg/CloseIcon.vue";
 import { useCart } from '../../utils/CartContext';
 import CartProduct from "./CartProduct.vue";
 
-addIcons(IoCloseOutline, MdAddshoppingcartOutlined);
 
 const props = defineProps({
   handleClose: {
@@ -159,14 +158,19 @@ watch(() => cart.items, () => {
   font-size: 36px;
   cursor: pointer;
   position: absolute;
-  right: 24px;
-  top: 4px;
+  right: 6px;
+  top: 6px;
 }
 
 @media (max-width: 460px) {
   .close {
     font-size: 30px;
   }
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
 }
 
 .row-checkout {

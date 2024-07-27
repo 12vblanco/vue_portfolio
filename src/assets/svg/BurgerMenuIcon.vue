@@ -9,11 +9,9 @@
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <path
-      d="M6 18 18 6M6 6l12 12"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    ></path>
+  <path d="M3 12H21" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M3 6H21" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M3 18H21" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
 </template>
 

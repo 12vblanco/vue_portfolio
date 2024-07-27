@@ -2,7 +2,7 @@
   <div>
     <div class="burger-div" @click="clickHandler">
       <div class="menu-icon">
-        <OhVueIcon :name="click ? 'io-close-outline' : 'io-menu'" scale="2.2" />
+        <component :is="click ? CloseIcon : BurgerMenuIcon" class="icon" />
         <span v-if="productsCount > 0" class="counter">{{ productsCount }}</span>
       </div>
     </div>
@@ -13,13 +13,11 @@
 </template>
 
 <script setup>
-import { OhVueIcon, addIcons } from "oh-vue-icons";
-import { IoCloseOutline, IoMenu } from "oh-vue-icons/icons";
 import { computed, ref } from 'vue';
+import BurgerMenuIcon from '../../assets/svg/BurgerMenuIcon.vue';
+import CloseIcon from '../../assets/svg/CloseIcon.vue';
 import { useCart } from '../../utils/CartContext.js';
 import NavMenu from './NavMenu.vue';
-
-addIcons(IoMenu, IoCloseOutline);
 
 const props = defineProps({
   handleShow: Function,
@@ -27,16 +25,14 @@ const props = defineProps({
 });
 
 const cart = useCart();
-const productsCount = computed(() => 
+const productsCount = computed(() =>
   cart.items.reduce((sum, product) => sum + product.quantity, 0)
 );
 
 const click = ref(false);
-
 const clickHandler = () => {
   click.value = !click.value;
 };
-
 const closeMenu = () => {
   click.value = false;
 };
@@ -50,12 +46,10 @@ const closeMenu = () => {
   flex: 1;
   margin-right: 4%;
 }
-
 .menu-icon {
   position: relative;
   margin-bottom: 14px;
 }
-
 .overlay-menu {
   position: fixed;
   top: 110px;
@@ -68,11 +62,9 @@ const closeMenu = () => {
   background-color: var(--color-bg);
   z-index: 22999;
 }
-
 .overlay-menu.show {
   transform: translateX(0);
 }
-
 .counter {
   position: absolute;
   display: flex;
@@ -88,9 +80,8 @@ const closeMenu = () => {
   top: -18px;
   right: -12px;
 }
-
-.oh-vue-icon {
+.icon {
   width: 40px;
-  font-size: 40px;
+  height: 40px;
 }
 </style>
