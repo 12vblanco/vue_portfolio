@@ -8,21 +8,19 @@
 
 <script>
 import { onMounted } from 'vue';
-import { useRouter } from 'vue-router';
 
 export default {
   name: 'Success',
   setup() {
-    const router = useRouter();
-
     const handleBackHome = () => {
-      router.push('/');
+      window.location.href = '/';
     };
 
     onMounted(() => {
       const timer = setTimeout(() => {
         handleBackHome();
       }, 4000);
+
       return () => clearTimeout(timer);
     });
 
