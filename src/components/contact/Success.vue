@@ -41,8 +41,6 @@ export default {
   flex-direction: column;
   width: 100%;
   height: 90vh;
-  border-bottom: solid 1px #000;
-  border-right: solid 1px #000;
 }
 
 .text {
