@@ -3,15 +3,15 @@
     <div class="form-container">
       <h2>Please send us any requests or queries using this form:</h2>
       <form
-        id="contactForm"
-        name="contactForm"
-        method="POST"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-        data-netlify-recaptcha="true"
-        @submit.prevent="onSubmitHandler"
+      id="contactForm"
+      name="contactForm"
+      method="POST"
+      action="/success"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      @submit.prevent="onSubmitHandler"
       >
-        <input type="hidden" name="form-name" value="contactForm" />
+      <input type="hidden" name="bot-field" style="display: none;" />
 
         <label for="name">
           Your name
@@ -52,25 +52,26 @@ export default {
   name: 'ContactForm',
   setup() {
     const onSubmitHandler = (e) => {
-      e.preventDefault();
-
-      let myForm = document.getElementById('contactForm');
-      let formData = new FormData(myForm);
-      console.log('Form Data: ', Object.fromEntries(formData));
-
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData).toString(),
-      })
-        .then(() => {
-          console.log('Form submission successful');
-        })
-        .catch((error) => {
-          console.error('Form submission error:', error);
-          alert(error);
-        });
-    };
+  e.preventDefault();
+  const form = e.target;
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(new FormData(form)).toString(),
+  })
+    .then((response) => {
+      if (response.ok) {
+        console.log("Form submission successful");
+        // Redirect to success page or show success message
+      } else {
+        throw new Error("Form submission failed");
+      }
+    })
+    .catch((error) => {
+      console.error("Form submission error:", error);
+      alert(error);
+    });
+};
 
     return {
       onSubmitHandler,
