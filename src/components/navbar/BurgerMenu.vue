@@ -81,7 +81,7 @@ const closeMenu = () => {
   right: -12px;
 }
 .icon {
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
 }
 </style>

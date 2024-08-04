@@ -85,8 +85,8 @@ watch(productsCount, (newCount) => {
 .styled-div {
   position: fixed;
   top: 0;
-  left: 50%;
-  transform: translate(-50%);
+  /* left: 50%; */
+  /* transform: translate(-50%); */
   display: flex;
   width: 100vw;
   height: 110px;
@@ -107,7 +107,7 @@ watch(productsCount, (newCount) => {
 
 .nav-div {
   display: flex;
-  height: 92px;
+  /* height: 92px; */
   align-items: center;
   justify-content: space-around;
 }

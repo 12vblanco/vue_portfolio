@@ -72,7 +72,7 @@ export default defineComponent({
   width: 340px;
   height: 530px;
   background: white;
-  margin: auto;
+  margin: 8px 10px;
   position: relative;
   overflow: hidden;
   border-radius: 5px;

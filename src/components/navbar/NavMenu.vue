@@ -39,7 +39,7 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  /* padding: 20px; */
 }
 
 @media (min-width: 1140px) {

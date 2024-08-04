@@ -21,9 +21,9 @@ export default {
   max-width: 1240px;
   margin: 0 auto;
   height: auto;
-  padding-top: 10%;
+  padding-top: 11%;
   font-size: 22px;
-  margin-top: 110px;
+  margin-top: 118px;
   margin-bottom: 60px;
 }
 

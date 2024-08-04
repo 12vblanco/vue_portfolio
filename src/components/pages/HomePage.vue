@@ -38,11 +38,11 @@ export default defineComponent({
 
 <style scoped>
 ProductCard {
-  margin: 6px 10px;
+  margin: 6px 12px;
 }
 @media (max-width: 340px) {
   .product-card {
-    margin: 6px 0;
+    margin: 6px 4px;
   }
 }
 </style>
