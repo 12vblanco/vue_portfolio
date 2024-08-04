@@ -48,37 +48,36 @@
 </template>
 
 <script>
-import { useRouter } from 'vue-router';
-
 export default {
+  name: 'ContactForm',
   setup() {
-    const router = useRouter();
-
     const onSubmitHandler = (e) => {
-      e.preventDefault();
-      const form = e.target;
-      fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(new FormData(form)).toString(),
-      })
-        .then((response) => {
-          if (response.ok) {
-            console.log("Form submission successful");
-            router.push('/success');
-          } else {
-            throw new Error("Form submission failed");
-          }
-        })
-        .catch((error) => {
-          console.error("Form submission error:", error);
-          alert(error);
-        });
-    };
+  e.preventDefault();
+  const form = e.target;
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(new FormData(form)).toString(),
+  })
+    .then((response) => {
+      if (response.ok) {
+        console.log("Form submission successful");
+        // Redirect to success page or show success message
+      } else {
+        throw new Error("Form submission failed");
+      }
+    })
+    .catch((error) => {
+      console.error("Form submission error:", error);
+      alert(error);
+    });
+};
 
-    return { onSubmitHandler };
-  }
-}
+    return {
+      onSubmitHandler,
+    };
+  },
+};
 </script>
 
 <style scoped>
