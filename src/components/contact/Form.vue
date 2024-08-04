@@ -42,9 +42,11 @@
  </div>
  </template>
  <script>
+ import { useRouter } from 'vue-router';
  export default {
  name: 'ContactForm',
  setup() {
+ const router = useRouter();
  const onSubmitHandler = (e) => {
  e.preventDefault();
  let myForm = document.getElementById('contactForm');
@@ -57,6 +59,7 @@
   })
   .then(() => {
  console.log('Form submission successful');
+ router.push('/success');
   })
   .catch((error) => {
  console.error('Form submission error:', error);
