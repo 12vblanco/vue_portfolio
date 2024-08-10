@@ -29,11 +29,5 @@ export default {
 </script>
 
 <style scoped>
-.add-to-cart-icon {
-  width: '48px';
-  height: '48px';
-  stroke-width: '2.2';
-  cursor: 'pointer';
-  margin-right: '4px';
-}
+
 </style>
